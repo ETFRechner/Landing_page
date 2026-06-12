@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- <title>ETF Steuer Rechner – ETF steuerfrei verkaufen & Steuer berechnen (Deutschland)</title> -->
+<title>ETF Steuer Rechner – Steuer beim ETF‑Verkauf berechnen | etfsteuerrechner.de</title>
+
+<meta name="description" content="Kostenloser ETF Steuer Rechner für Deutschland. Berechnen Sie, wie viele ETF‑Anteile Sie steuerfrei verkaufen können, wie hoch die Steuer beim ETF‑Verkauf ist und wie viele Anteile Sie für einen gewünschten Nettoerlös verkaufen müssen.">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title" content="ETF Steuer Rechner Deutschland">
+<meta property="og:description" content="Berechnen Sie, wie viele ETF‑Anteile Sie steuerfrei verkaufen können oder wie viele Anteile Sie für einen bestimmten Nettoerlös verkaufen müssen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://etfsteuerrechner.de">
+<meta property="og:image" content="https://etfsteuerrechner.de/preview.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ETF Steuer Rechner Deutschland">
+<meta name="twitter:description" content="Kostenloser Rechner für ETF‑Steuern in Deutschland.">
+
+<meta name="theme-color" content="#ffffff">
+
+<meta name="color-scheme" content="light dark">
+
+<link rel="canonical" href="https://etfsteuerrechner.de">
+<link rel="icon" type="image/png" href="preview.png">
+
+<style>
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: #f1f5f9;
+  color: #1f2937;
+}
+p { margin: 0 0 14px; }
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.hero, .faq {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  margin-bottom: 28px;
+  border-left: 4px solid #2563eb;
+}
+
+
+.tool {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 50px;
+    margin-right: 0;
+    margin-bottom: 10px;
+    margin-left: 0;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #2563eb;
+}
+
+/* .tool-intro {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+} */
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-top: 36px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #2563eb;
+  margin: 30px 0;
+  color: #2563eb;
+}
+
+/* .tool h2 {
+  margin-top: 0;
+} */
+
+iframe {
+    width: 100%;
+    min-height: 1200px;
+    border: none;
+    display: block;
+}
+
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+details {
+    margin-bottom: 12px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+summary:hover {
+  color: #2563eb;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+}
+
+.disclaimer {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 2px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+
+  .modal-content {
+    margin: 10% 10px;
+    padding: 20px;
+    max-width: 100%;
+    max-height: 85vh;
+  }
+
+}
+
+@media (prefers-color-scheme: light) {
+
+  body {
+    background: #0f172a;
+    color: #e5e7eb;
+  }
+
+  .hero,
+  .tool,
+  .faq {
+    background: #1e293b;
+    border: 1px solid #334155;
+  }
+
+  footer, .disclaimer {
+    color: #cbd5f5;
+  }
+
+  summary:hover {
+    color: #60a5fa;
+  }
+
+}
+
+</style>
+</head>
+
+<script>
+
+function openModal(id) {
+  document.getElementById(id).style.display = "block";
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+window.onclick = function(event) {
+  let modals = document.getElementsByClassName("modal");
+  for (let modal of modals) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+}
+
+</script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+
+<body>
+
+<main class="container">
+
+<section class="hero">
+
+<h1>ETF Steuer Rechner (Deutschland)</h1>
+
+<hr>
+
+<h2>ETF Steuer beim Verkauf berechnen</h2>
+
+<p>
+Dieser <strong>ETF Steuer Rechner für Deutschland</strong> hilft Ihnen dabei:
+</p>
+
+<ul>
+<li>zu berechnen, <strong>wie viele ETF-Anteile Sie steuerfrei verkaufen können um den Sparerpauschbetrag optimal zu nutzen</strong></li>
+<li>herauszufinden, <strong>wie viele Anteile Sie verkaufen müssen, um einen bestimmten Nettobetrag zu erhalten</strong></li>
+<li>die <strong>voraussichtliche Steuer beim Verkauf von ETFs</strong> zu berechnen</li>
+</ul>
+
+<p>
+Der Rechner eignet sich besonders für Anleger, die ihren <strong>Sparerpauschbetrag optimal nutzen</strong> oder einen ETF-Verkauf planen.
+</p>
+
+<p>
+Für die Berechnung benötigen Sie lediglich Ihre ETF-Käufe (<strong>Anzahl, Preis und Kaufdatum</strong>).
+</p>
+
+<hr>
+
+<h2>Welche Steuerregeln werden berücksichtigt?</h2>
+
+<p>
+Der ETF Steuer Rechner berücksichtigt wichtige steuerliche Regeln für ETFs in Deutschland:
+</p>
+
+<ul>
+<li><strong>FIFO-Prinzip (First-In-First-Out)</strong> bei Verkäufen</li>
+<li><strong>Teilfreistellung für Aktien-ETFs</strong> (30% steuerfrei)</li>
+<li><strong>Vorabpauschale</strong> bei thesaurierenden ETFs</li>
+<li><strong>Sparerpauschbetrag</strong></li>
+<li><strong>Verlustverrechnung über den Verlusttopf</strong></li>
+</ul>
+
+<p>
+Damit erhalten Sie eine möglichst realistische Schätzung der Steuer beim Verkauf Ihrer ETF-Anteile.
+</p>
+
+<hr>
+
+<h2>Was wird nicht berücksichtigt?</h2>
+
+<p>
+Der ETF Steuer Rechner berücksichtigt die wichtigsten steuerlichen Regeln für ETFs in Deutschland. 
+Einige kleinere Faktoren können jedoch nicht exakt abgebildet werden. Dazu gehören zum Beispiel:
+</p>
+
+<ul>
+
+<li>
+<strong>Verkaufsgebühren oder Orderkosten Ihres Brokers.</strong>
+Diese reduzieren in der Praxis den tatsächlichen Nettoerlös, werden aber in diesem Rechner nicht berücksichtigt.
+</li>
+
+<li>
+<strong>Berechnung der Vorabpauschale.</strong>
+Einige Banken berechnen die Vorabpauschale tagesgenau, andere monatsgenau. 
+In diesem Tool erfolgt die Berechnung auf Monatsbasis.
+Zudem wird angenommen, dass bei ausschüttenden ETFs keine Vorabpauschale anfällt. 
+Technisch kann in seltenen Fällen dennoch eine Vorabpauschale entstehen, wenn die Ausschüttungen kleiner als der berechnete Basisertrag sind.
+</li>
+
+<li>
+<strong>Rundungsregeln und Kursquellen.</strong>
+Banken können leicht unterschiedliche Rundungsregeln oder Kursquellen verwenden, wodurch kleine Unterschiede entstehen können.
+</li>
+
+<li>
+<strong>Zukünftige Änderungen der Steuerregeln.</strong>
+Die Berechnung basiert auf dem aktuellen Stand der deutschen Steuergesetzgebung (Stand: Juni 2026).
+</li>
+
+</ul>
+
+<p>
+Insgesamt kann es daher zu kleinen Abweichungen zwischen der Berechnung dieses Tools und der tatsächlichen Steuerberechnung Ihrer Bank kommen.
+</p>
+
+<hr>
+
+<h2>Beispiel</h2>
+
+<p>
+Wenn Sie herausfinden möchten, <strong>wie viele ETF-Anteile Sie verkaufen können, ohne Steuern zu zahlen</strong>, berechnet der Rechner für Sie:
+</p>
+
+<ul>
+<li>die <strong>Anzahl der steuerfrei verkaufbaren Anteile</strong></li>
+<li>den <strong>Nettoerlös aus diesem steuerfreien Verkauf</strong></li>
+<li>den <strong>verbleibenden Sparerpauschbetrag nach Verkauf</strong></li>
+</ul>
+
+<p>
+So können Sie leicht prüfen, wie Sie Ihren <strong>Sparerpauschbetrag optimal ausnutzen</strong>, ohne unnötig Steuern zu zahlen.
+</p>
+
+<hr>
+
+<h2>Hinweis</h2>
+
+<p>
+Die Ergebnisse sind eine realistische Schätzung und dienen nur zur Orientierung.
+In der tatsächlichen Abrechnung Ihrer Bank können leichte Abweichungen entstehen.
+</p>
+
+<p>
+Die auf dieser Website bereitgestellten Steuerberechnungen dienen ausschließlich zu Informationszwecken und stellen <strong>keine steuerliche Beratung dar</strong>. Trotz sorgfältiger Erstellung übernehmen wir keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
+</p>
+
+<hr>
+
+<h2>Datenschutz</h2>
+
+<p>
+Alle Berechnungen erfolgen direkt in Ihrem Browser.
+Es werden <strong>keine persönlichen Finanzdaten gespeichert</strong>.
+</p>
+
+</section>
+
+<div class="tool">
+
+<iframe 
+src="https://etf-steuer-rechner.streamlit.app/?embed=true"
+width="100%"
+style="border:none;">
+</iframe>
+
+</div>
+
+<footer>
+
+
+<div class="disclaimer">
+Hinweis: Die bereitgestellten Berechnungen dienen ausschließlich der unverbindlichen Information und stellen keine steuerliche Beratung dar. Trotz sorgfältiger Erstellung übernehme ich keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
+</div>
+
+</footer>
+
+<section class="faq">
+
+<h2>Häufige Fragen (FAQ)</h2>
+
+<details>
+
+<summary>Was ist der Sparerpauschbetrag?</summary>
+<p>
+Der Sparerpauschbetrag ist ein Freibetrag für Kapitalerträge. In Deutschland können derzeit bis zu 1000 € pro Person pro Jahr steuerfrei verdient werden. Erst darüber hinaus fällt Abgeltungssteuer an.
+</p>
+</details>
+
+<details>
+<summary>Was bedeutet FIFO beim ETF‑Verkauf?</summary>
+<p>
+FIFO steht für „First‑In‑First‑Out“. Steuerlich gilt in Deutschland, dass beim Verkauf zunächst die zuerst gekauften ETF‑Anteile wieder verkauft werden.
+</p>
+</details>
+
+<details>
+<summary>Was ist die Teilfreistellung bei ETFs?</summary>
+<p>
+Bei Aktien‑ETFs sind 30 % der Gewinne steuerfrei. Das bedeutet, dass nur 70 % des Gewinns tatsächlich versteuert werden müssen.
+</p>
+</details>
+
+<details>
+<summary>Was ist die Vorabpauschale?</summary>
+<p>
+Die Vorabpauschale ist eine jährliche Mindestbesteuerung für Fonds. Sie stellt sicher, dass ein Teil der Erträge auch dann besteuert wird, wenn der Fonds keine Ausschüttungen vornimmt.
+</p>
+</details>
+
+<details>
+<summary>Wie genau ist die Steuerberechnung dieses Rechners?</summary>
+<p>
+Der Rechner verwendet die aktuellen deutschen Steuerregeln und berücksichtigt FIFO, Teilfreistellung, Vorabpauschale, Sparerpauschbetrag und Verlusttopf. Dennoch können in der tatsächlichen Abrechnung Ihrer Bank leichte Abweichungen entstehen.
+</p>
+</details>
+
+<details>
+<summary>Wie komme ich an meine Kaufdaten?</summary>
+<p>
+Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit. Dort finden Sie ausgeführte Kaufaufträge mit Kaufdatum, Stückpreis und Anzahl der gekauften Anteile.
+</p>
+</details>
+
+</section>
+
+<hr>
+
+<footer>
+
+<p>© 2026 ETF Steuer Rechner – Alle Berechnungen ohne Gewähr. Keine steuerliche Beratung.</p>
+
+
+<p>
+<a href="#" onclick="openModal('impressumModal')">Impressum</a> |
+<a href="#" onclick="openModal('datenschutzModal')">Datenschutz</a>
+</p>
+
+</footer>
+
+<div id="impressumModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('impressumModal')">&times;</span>
+
+    <h2>Impressum</h2>
+
+    <p>Angaben gemäß §5 Digitale-Dienste-Gesetz (DDG)</p>
+
+    <p>
+    Dennis Hermelyn<br>
+    Krawehlstr. 44<br>
+    45130 Essen<br>
+    Deutschland<br>
+    E-Mail: dennishermelyn@gmail.com<br>
+    </p>
+
+    <p>
+    Verantwortlich für den Inhalt nach §55 Abs. 2 RStV:<br>
+    Dennis Hermelyn
+    </p>
+
+    <p>
+    Dieses Projekt ist ein privates Informationsangebot. Alle Berechnungen erfolgen ohne Gewähr.
+    </p>
+
+  </div>
+</div>
+
+
+
+<div id="datenschutzModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('datenschutzModal')">&times;</span>
+
+        <h2>Datenschutzerklärung</h2>
+
+        <h3>1. Allgemeine Hinweise</h3>
+        <p>
+        Der Schutz Ihrer persönlichen Daten ist mir wichtig. Diese Website kann grundsätzlich ohne Angabe personenbezogener Daten genutzt werden.
+        </p>
+
+        <h3>2. Verantwortlicher</h3>
+        <p>
+        Verantwortlich für die Datenverarbeitung auf dieser Website ist:
+        </p>
+
+        <p>
+        Dennis Hermelyn<br>
+        Krawehlstr. 44<br>
+        45130 Essen<br>
+        E‑Mail: dennishermelyn@gmail.com
+        </p>
+
+        <h3>3. Hosting über Vercel</h3>
+        <p>
+        Diese Website wird über den Hosting‑Dienst Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA betrieben.
+        Beim Aufruf der Website werden durch den Hosting‑Provider automatisch technische Informationen verarbeitet.
+        Dazu können insbesondere gehören:
+        </p>
+
+        <ul>
+        <li>IP‑Adresse</li>
+        <li>Datum und Uhrzeit des Zugriffs</li>
+        <li>Browsertyp und Betriebssystem</li>
+        <li>aufgerufene Seiten</li>
+        <li>Referrer‑URL</li>
+        </ul>
+
+        <p>
+        Diese Daten sind technisch erforderlich, um die Website bereitzustellen und die Stabilität sowie Sicherheit der Systeme zu gewährleisten.
+        </p>
+
+        <h3>4. Eingebettetes Tool (Streamlit)</h3>
+        <p>
+        Auf dieser Website ist ein Rechner eingebettet, der über die Plattform Streamlit betrieben wird.
+        Beim Aufruf dieses Tools kann eine Verbindung zu Servern des jeweiligen Anbieters hergestellt werden.
+        Dabei können technische Daten wie IP‑Adresse, Browserinformationen und Zeitpunkt des Zugriffs verarbeitet werden.
+        </p>
+
+        <p>
+        Der Rechner verarbeitet ausschließlich die vom Nutzer eingegebenen Daten lokal zur Durchführung der Berechnung.
+        Es werden durch den Betreiber dieser Website keine eingegebenen Daten gespeichert oder weitergegeben.
+        </p>
+
+        <h3>5. Cookies</h3>
+        <p>
+        Diese Website verwendet selbst keine Cookies zur Analyse oder Nachverfolgung von Nutzern.
+        Es kann jedoch sein, dass technische Cookies durch den Hosting‑Anbieter oder eingebettete Dienste gesetzt werden.
+        </p>
+
+        <h3>6. Ihre Rechte</h3>
+        <p>
+        Sie haben im Rahmen der gesetzlichen Bestimmungen das Recht auf Auskunft über die Verarbeitung Ihrer personenbezogenen Daten sowie ein Recht auf Berichtigung oder Löschung dieser Daten.
+        </p>
+
+        <p>
+        Da diese Website selbst keine personenbezogenen Daten speichert, können entsprechende Anfragen in der Regel nicht direkt bearbeitet werden.
+        Technische Zugriffsdaten werden ausschließlich durch den Hosting‑Anbieter verarbeitet.
+        </p>
+
+        <p>
+        Sie haben außerdem das Recht, sich bei einer Datenschutzaufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren.
+        </p>
+
+        <h3>7. Änderungen dieser Datenschutzerklärung</h3>
+        <p>
+        Diese Datenschutzerklärung kann angepasst werden, wenn sich technische oder rechtliche Rahmenbedingungen ändern.
+        </p>
+
+<!-- 
+        <h2>Datenschutzerklärung</h2>
+
+        <h3>1. Verantwortlicher</h3>
+        <p>
+        Verantwortlich für die Datenverarbeitung auf dieser Website ist:
+        </p>
+
+        <p>
+        Dennis Hermelyn<br>
+        Krawehlstr. 44<br>
+        45130 Essen<br>
+        Deutschland<br>
+        E-Mail: dennishermelyn@gmail.com
+        </p>
+
+        <h3>2. Allgemeine Hinweise</h3>
+        <p>
+        Der Schutz Ihrer persönlichen Daten ist mir wichtig. Diese Website kann grundsätzlich ohne Angabe personenbezogener Daten genutzt werden.
+        </p>
+
+        <h3>3. Hosting</h3>
+        <p>
+        Diese Website wird über den externen Hosting-Anbieter Vercel betrieben. Beim Aufruf der Website werden automatisch Informationen durch den Webserver erfasst.
+        </p>
+
+        <p>Dies können insbesondere sein:</p>
+
+        <ul>
+        <li>IP-Adresse</li>
+        <li>Datum und Uhrzeit des Zugriffs</li>
+        <li>Browsertyp und Betriebssystem</li>
+        <li>aufgerufene Seiten</li>
+        </ul>
+
+        <p>
+        Diese Daten dienen ausschließlich der technischen Bereitstellung und Sicherheit der Website. Rechtsgrundlage der Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren Betrieb der Website).
+        </p>
+
+        <h3>4. Nutzung des ETF-Steuerrechners</h3>
+        <p>
+        Auf dieser Website wird ein selbst entwickelter ETF-Steuerrechner bereitgestellt. Die eingegebenen Daten werden ausschließlich zur Durchführung der Berechnung verwendet und nicht dauerhaft gespeichert.
+        </p>
+
+        <h3>5. Cookies</h3>
+        <p>
+        Diese Website verwendet keine eigenen Cookies zur Analyse oder Nachverfolgung von Nutzern.
+        </p>
+
+        <h3>6. Externe Inhalte</h3>
+        <p>
+        Der Steuerrechner wird über eine externe Webanwendung (Streamlit) bereitgestellt und in diese Website eingebettet. Beim Aufruf können technische Daten wie die IP-Adresse an den jeweiligen Dienst übertragen werden. Beim Aufruf des Rechners kann eine Verbindung zu den Servern dieses Dienstes hergestellt werden.
+        </p>
+
+        <h3>7. Ihre Rechte</h3>
+        <p>
+        Sie haben im Rahmen der gesetzlichen Bestimmungen jederzeit das Recht auf:
+        </p>
+
+        <ul>
+        <li>Auskunft über Ihre gespeicherten personenbezogenen Daten</li>
+        <li>Berichtigung unrichtiger Daten</li>
+        <li>Löschung Ihrer Daten</li>
+        <li>Einschränkung der Verarbeitung</li>
+        <li>Widerspruch gegen die Verarbeitung</li>
+        </ul>
+
+        <p>
+        Außerdem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren.
+        </p> -->
+
+        <h3>8. Kontakt</h3>
+        <p>
+        Bei Fragen zum Datenschutz können Sie sich jederzeit per E-Mail an mich wenden:
+        </p>
+
+        <p>
+        dennishermelyn@gmail.com
+        </p>
+
+        <h3>Stand: Juni 2026</h3>
+
+
+
+  </div>
+</div>
+
+
+</main>
+
+</body>
+</html>
+
+<!-- code ändern sodass lininen, und anklickbare elemente eine andere farbe haben. -->
