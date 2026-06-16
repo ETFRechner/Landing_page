@@ -221,6 +221,14 @@ summary:hover {
     border-left: none;
   }
 
+  .tool-frame {
+    width: 100%;
+    height: 95vh;
+    border: none;
+    display: block;
+  }
+
+
   .hero,
   .faq {
     padding: 18px;
@@ -237,53 +245,16 @@ summary:hover {
 
   iframe {
     width: 100%;
-    min-height: 85vh;
+    min-height: 90vh;
   }
 
   body {
     font-size: 17px;
     padding-bottom: 90px;
+    margin: 0;
   }
 
 }
-
-/* @media (max-width: 600px) {
-
-  .container {
-    padding: 10px;
-    max-width: 100%;
-  }
-
-  .tool {
-    margin-left: -10px;
-    margin-right: -10px;
-    border-radius: 0;
-  }
-
-  .hero,
-  .faq {
-    padding: 18px;
-    margin-bottom: 20px;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  iframe {
-    min-height: 95vh;
-  }
-
-  body {
-  font-size: 17px;
-  padding-bottom: 90px;
-  }
-
-} */
 
 .mobile-tool-button {
   display: none;
@@ -359,41 +330,20 @@ Dieser <strong>ETF Steuer Rechner für Deutschland</strong> hilft Ihnen dabei:
 Der Rechner eignet sich besonders für Anleger, die ihren <strong>Sparerpauschbetrag optimal nutzen</strong> oder einen ETF-Verkauf planen um einen bestimmten Nettobetrag zu erhalten.
 </p>
 
-
 </section>
-
-<div class="tool" id="rechner">
-
-
-<!-- <div class="tool"> -->
 
 <iframe 
 src="https://etf-steuer-rechner.streamlit.app/?embed=true"
-width="100%"
-style="border:none;">
+class="tool-frame"
+id="rechner">
 </iframe>
 
-</div>
 
 <div class="disclaimer">
-Hinweis: Die bereitgestellten Berechnungen dienen ausschließlich der unverbindlichen Information und stellen keine steuerliche Beratung dar. Trotz sorgfältiger Erstellung übernehme ich keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
+Hinweis: Die bereitgestellten Berechnungen dienen ausschließlich der unverbindlichen Information und stellen keine steuerliche Beratung dar. Trotz sorgfältiger Erstellung wird keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse übernommen. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
 </div>
-
-
-<!-- </div>
-
-<footer>
-
-
-<div class="disclaimer">
-Hinweis: Die bereitgestellten Berechnungen dienen ausschließlich der unverbindlichen Information und stellen keine steuerliche Beratung dar. Trotz sorgfältiger Erstellung übernehme ich keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
-</div>
-
-</footer> -->
-
 
 <section class="hero">
-
 
 <h2>Welche Steuerregeln werden berücksichtigt?</h2>
 
@@ -481,7 +431,7 @@ In der tatsächlichen Abrechnung Ihrer Bank können leichte Abweichungen entsteh
 </p>
 
 <p>
-Die auf dieser Website bereitgestellten Steuerberechnungen dienen ausschließlich zu Informationszwecken und stellen <strong>keine steuerliche Beratung dar</strong>. Trotz sorgfältiger Erstellung übernehmen wir keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
+Die auf dieser Website bereitgestellten Steuerberechnungen dienen ausschließlich zu Informationszwecken und stellen <strong>keine steuerliche Beratung dar</strong>. Trotz sorgfältiger Erstellung wird keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse übernommen. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
 </p>
 
 <hr>
