@@ -104,7 +104,8 @@ hr {
 
 iframe {
     width: 100%;
-    min-height: 1200px;
+    height: 90vh;
+    /* min-height: 1200px; */
     border: none;
     display: block;
 }
@@ -120,10 +121,16 @@ details {
     margin-bottom: 12px;
 }
 
-summary {
+/* summary {
     cursor: pointer;
     font-weight: bold;
+} */
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 0;
 }
+
 
 summary:hover {
   color: #2563eb;
@@ -176,7 +183,7 @@ summary:hover {
 
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
 
   body {
     background: #0f172a;
@@ -196,6 +203,61 @@ summary:hover {
 
   summary:hover {
     color: #60a5fa;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .container {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .hero,
+  .tool,
+  .faq {
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  iframe {
+    min-height: 95vh;
+  }
+
+  body {
+  font-size: 17px;
+  }
+
+}
+
+.mobile-tool-button {
+  display: none;
+}
+
+@media (max-width: 600px) {
+
+  .mobile-tool-button {
+    display: block;
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    z-index: 999;
   }
 
 }
@@ -247,14 +309,44 @@ Dieser <strong>ETF Steuer Rechner für Deutschland</strong> hilft Ihnen dabei:
 </ul>
 
 <p>
-Der Rechner eignet sich besonders für Anleger, die ihren <strong>Sparerpauschbetrag optimal nutzen</strong> oder einen ETF-Verkauf planen.
+Der Rechner eignet sich besonders für Anleger, die ihren <strong>Sparerpauschbetrag optimal nutzen</strong> oder einen ETF-Verkauf planen um einen bestimmten Nettobetrag zu erhalten.
 </p>
 
-<p>
-Für die Berechnung benötigen Sie lediglich Ihre ETF-Käufe (<strong>Anzahl, Preis und Kaufdatum</strong>).
-</p>
 
-<hr>
+</section>
+
+<div class="tool" id="rechner">
+
+
+<!-- <div class="tool"> -->
+
+<iframe 
+src="https://etf-steuer-rechner.streamlit.app/?embed=true"
+width="100%"
+style="border:none;">
+</iframe>
+
+</div>
+
+<div class="disclaimer">
+Hinweis: Die bereitgestellten Berechnungen dienen ausschließlich der unverbindlichen Information und stellen keine steuerliche Beratung dar. Trotz sorgfältiger Erstellung übernehme ich keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
+</div>
+
+
+<!-- </div>
+
+<footer>
+
+
+<div class="disclaimer">
+Hinweis: Die bereitgestellten Berechnungen dienen ausschließlich der unverbindlichen Information und stellen keine steuerliche Beratung dar. Trotz sorgfältiger Erstellung übernehme ich keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
+</div>
+
+</footer> -->
+
+
+<section class="hero">
+
 
 <h2>Welche Steuerregeln werden berücksichtigt?</h2>
 
@@ -356,25 +448,6 @@ Es werden <strong>keine persönlichen Finanzdaten gespeichert</strong>.
 
 </section>
 
-<div class="tool">
-
-<iframe 
-src="https://etf-steuer-rechner.streamlit.app/?embed=true"
-width="100%"
-style="border:none;">
-</iframe>
-
-</div>
-
-<footer>
-
-
-<div class="disclaimer">
-Hinweis: Die bereitgestellten Berechnungen dienen ausschließlich der unverbindlichen Information und stellen keine steuerliche Beratung dar. Trotz sorgfältiger Erstellung übernehme ich keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
-</div>
-
-</footer>
-
 <section class="faq">
 
 <h2>Häufige Fragen (FAQ)</h2>
@@ -423,6 +496,8 @@ Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit
 </details>
 
 </section>
+
+<a href="#rechner" class="mobile-tool-button">Zum Rechner</a>
 
 <hr>
 
