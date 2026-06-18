@@ -5,28 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- <title>ETF Steuer Rechner – ETF steuerfrei verkaufen & Steuer berechnen (Deutschland)</title> -->
-<title>ETF Steuer Rechner – Steuer beim ETF‑Verkauf berechnen | etfsteuerrechner.de</title>
+<title>ETF Steuer Rechner – ETF Steuer beim Verkauf berechnen (Deutschland)</title>
 
-<meta name="description" content="Kostenloser ETF Steuer Rechner für Deutschland. Berechnen Sie, wie viele ETF‑Anteile Sie steuerfrei verkaufen können, wie hoch die Steuer beim ETF‑Verkauf ist und wie viele Anteile Sie für einen gewünschten Nettoerlös verkaufen müssen.">
+<meta name="description" content="Kostenloser ETF Steuer Rechner für Deutschland. Berechnen Sie die Steuer beim ETF-Verkauf, wie viele ETF-Anteile steuerfrei verkauft werden können und wie viele Anteile Sie für einen gewünschten Nettoerlös verkaufen müssen.">
 
 <meta name="robots" content="index, follow">
 
 <meta property="og:title" content="ETF Steuer Rechner Deutschland">
-<meta property="og:description" content="Berechnen Sie, wie viele ETF‑Anteile Sie steuerfrei verkaufen können oder wie viele Anteile Sie für einen bestimmten Nettoerlös verkaufen müssen.">
+<meta property="og:description" content="Berechnen Sie, wie viele ETF-Anteile Sie steuerfrei verkaufen können oder wie viele Anteile Sie für einen bestimmten Nettoerlös verkaufen müssen.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://etfsteuerrechner.de">
 <meta property="og:image" content="https://etfsteuerrechner.de/preview.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ETF Steuer Rechner Deutschland">
-<meta name="twitter:description" content="Kostenloser Rechner für ETF‑Steuern in Deutschland.">
+<meta name="twitter:description" content="Kostenloser Rechner für ETF-Steuern in Deutschland.">
 
 <meta name="theme-color" content="#ffffff">
 
 <meta name="color-scheme" content="light dark">
 
 <link rel="canonical" href="https://etfsteuerrechner.de">
-<link rel="icon" type="image/png" href="preview.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/preview.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/preview.png">
 
 <style>
 
@@ -97,10 +98,6 @@ hr {
   margin: 30px 0;
   color: #2563eb;
 }
-
-/* .tool h2 {
-  margin-top: 0;
-} */
 
 iframe {
     width: 100%;
@@ -262,9 +259,8 @@ summary:hover {
 }
 
 @media (max-width: 600px) {
-
   .mobile-tool-button {
-    display: block;
+    display: none; /* bleibt erstmal verborgen */
     position: fixed;
     bottom: 16px;
     left: 16px;
@@ -279,7 +275,11 @@ summary:hover {
     z-index: 999;
   }
 
+  .mobile-tool-button.visible {
+    display: block;
+  }
 }
+
 
 </style>
 </head>
@@ -303,7 +303,34 @@ window.onclick = function(event) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const iframe = document.getElementById("rechner");
+  const button = document.querySelector(".mobile-tool-button");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          button.classList.remove("visible"); // iframe sichtbar -> Button ausblenden
+        } else {
+          button.classList.add("visible"); // iframe nicht sichtbar -> Button anzeigen
+        }
+      });
+    },
+    {
+      threshold: 0.1
+    }
+  );
+
+  observer.observe(iframe);
+
+});
+
+
 </script>
+
+
 
 <body>
 
@@ -311,33 +338,60 @@ window.onclick = function(event) {
 
 <section class="hero">
 
-<h1>ETF Steuer Rechner (Deutschland)</h1>
+  <h1>ETF Steuer Rechner (Deutschland)</h1>
+<p>
+Kostenloser Rechner zur Berechnung der Steuer beim Verkauf von ETFs in Deutschland.
+</p>
 
 <hr>
 
-<h2>ETF Steuer beim Verkauf berechnen</h2>
+<h2>ETF Steuer beim ETF-Verkauf berechnen (Deutschland)</h2>
 
 <p>
-Dieser <strong>ETF Steuer Rechner für Deutschland</strong> hilft Ihnen dabei:
+Mit diesem <strong>ETF Steuer Rechner für Deutschland</strong> können Sie berechnen, 
+welche Steuer beim Verkauf Ihrer ETF-Anteile anfällt. 
+Der Rechner berücksichtigt wichtige steuerliche Regeln wie FIFO, Teilfreistellung, 
+Vorabpauschale, Verlusttopf und den Sparerpauschbetrag.
+</p>
+
+<p>
+Der Rechner hilft Ihnen dabei:
 </p>
 
 <ul>
-<li>zu berechnen, <strong>wie viele ETF-Anteile Sie steuerfrei verkaufen können um den Sparerpauschbetrag optimal zu nutzen</strong></li>
+<li>zu berechnen, <strong>wie viele ETF-Anteile Sie steuerfrei verkaufen können, um den Sparerpauschbetrag optimal zu nutzen</strong></li>
 <li>herauszufinden, <strong>wie viele Anteile Sie verkaufen müssen, um einen bestimmten Nettobetrag zu erhalten</strong></li>
 <li>die <strong>voraussichtliche Steuer beim Verkauf von ETFs</strong> zu berechnen</li>
 </ul>
 
+
 <p>
-Der Rechner eignet sich besonders für Anleger, die ihren <strong>Sparerpauschbetrag optimal nutzen</strong> oder einen ETF-Verkauf planen um einen bestimmten Nettobetrag zu erhalten.
+Der ETF Rechner eignet sich besonders für Anleger, die ihren <strong>Sparerpauschbetrag optimal nutzen</strong> oder einen ETF-Verkauf planen um einen bestimmten Nettobetrag zu erhalten.
 </p>
 
 </section>
 
-<iframe 
+<h2>ETF Steuer Rechner nutzen</h2>
+
+<p>
+Mit dem ETF Steuer Rechner können Sie direkt berechnen, welche Steuer beim Verkauf Ihrer ETF-Anteile anfällt. 
+Geben Sie einfach Ihre Kaufdaten und den aktuellen Kurs ein, um den steuerpflichtigen Gewinn und den Nettoerlös zu berechnen.
+</p>
+
+<!-- <iframe 
 src="https://etf-steuer-rechner.streamlit.app/?embed=true"
 class="tool-frame"
 id="rechner">
+</iframe> -->
+
+<iframe 
+src="https://etf-steuer-rechner.streamlit.app/?embed=true"
+class="tool-frame"
+id="rechner"
+loading="lazy"
+referrerpolicy="no-referrer">
 </iframe>
+
 
 
 <div class="disclaimer">
@@ -346,7 +400,7 @@ Hinweis: Die bereitgestellten Berechnungen dienen ausschließlich der unverbindl
 
 <section class="hero">
 
-<h2>Welche Steuerregeln werden berücksichtigt?</h2>
+<h2>Welche Steuerregeln berücksichtigt der ETF Steuer Rechner?</h2>
 
 <p>
 Der ETF Steuer Rechner berücksichtigt wichtige steuerliche Regeln für ETFs in Deutschland:
@@ -366,7 +420,7 @@ Damit erhalten Sie eine möglichst realistische Schätzung der Steuer beim Verka
 
 <hr>
 
-<h2>Was wird nicht berücksichtigt?</h2>
+<h2>Welche Faktoren berücksichtigt der ETF Steuer Rechner nicht?</h2>
 
 <p>
 Der ETF Steuer Rechner berücksichtigt die wichtigsten steuerlichen Regeln für ETFs in Deutschland. 
@@ -406,20 +460,43 @@ Insgesamt kann es daher zu kleinen Abweichungen zwischen der Berechnung dieses T
 
 <hr>
 
-<h2>Beispiel</h2>
+<h2>Beispielrechnung für den ETF Steuer Rechner</h2>
 
 <p>
-Wenn Sie herausfinden möchten, <strong>wie viele ETF-Anteile Sie verkaufen können, ohne Steuern zu zahlen</strong>, berechnet der Rechner für Sie:
-</p>
+Angenommen, Sie besitzen ETF-Anteile mit einem Gewinn von 1.700&nbsp;€ 
+und haben noch den vollen Sparerpauschbetrag von 1.000&nbsp;€ verfügbar.
 
-<ul>
-<li>die <strong>Anzahl der steuerfrei verkaufbaren Anteile</strong></li>
-<li>den <strong>Nettoerlös aus diesem steuerfreien Verkauf</strong></li>
-<li>den <strong>verbleibenden Sparerpauschbetrag nach Verkauf</strong></li>
-</ul>
+Der Rechner zeigt Ihnen, wie viele Anteile Sie verkaufen können,
+ohne Abgeltungssteuer zu zahlen.
+
+Alternativ können Sie berechnen, wie viele Anteile Sie verkaufen müssen,
+um einen bestimmten Nettoerlös zu erhalten. 
+
+Wenn Sie zum Beispiel 2.000&nbsp;€ netto aus einem ETF-Verkauf erhalten möchten,
+berechnet der Rechner automatisch, wie viele Anteile Sie dafür verkaufen müssen.
+</p>
 
 <p>
 So können Sie leicht prüfen, wie Sie Ihren <strong>Sparerpauschbetrag optimal ausnutzen</strong>, ohne unnötig Steuern zu zahlen.
+</p>
+
+<hr>
+
+<h2>Warum diesen ETF Steuer Rechner nutzen?</h2>
+
+<ul>
+<li>Berücksichtigt wichtige deutsche Steuerregeln für ETFs (FIFO, Teilfreistellung, Vorabpauschale)</li>
+<li>Kostenlos und ohne Registrierung nutzbar</li>
+<li>Keine Speicherung persönlicher Finanzdaten</li>
+<li>Berechnung direkt im Browser ohne Upload persönlicher Depotdaten</li>
+</ul>
+
+<hr>
+
+<h2>Für wen ist dieser ETF Steuer Rechner geeignet?</h2>
+
+<p>
+Der Rechner eignet sich für Anleger in Deutschland, die ihre ETF-Steuer beim Verkauf abschätzen möchten oder ihren Sparerpauschbetrag optimal nutzen wollen.
 </p>
 
 <hr>
@@ -435,47 +512,100 @@ In der tatsächlichen Abrechnung Ihrer Bank können leichte Abweichungen entsteh
 Die auf dieser Website bereitgestellten Steuerberechnungen dienen ausschließlich zu Informationszwecken und stellen <strong>keine steuerliche Beratung dar</strong>. Trotz sorgfältiger Erstellung wird keine Gewähr für die Richtigkeit, Vollständigkeit oder Aktualität der Ergebnisse übernommen. Für verbindliche Auskünfte wenden Sie sich bitte an einen Steuerberater oder das zuständige Finanzamt.
 </p>
 
-<hr>
-
-<h2>Datenschutz</h2>
-
-<p>
-Alle Berechnungen erfolgen direkt in Ihrem Browser.
-Es werden <strong>keine persönlichen Finanzdaten gespeichert</strong>.
-</p>
-
 </section>
 
 <section class="faq">
 
-<h2>Häufige Fragen (FAQ)</h2>
+<h2>FAQ: ETF Steuer und ETF-Verkauf in Deutschland</h2>
+
+<hr>
 
 <details>
-
-<summary>Was ist der Sparerpauschbetrag?</summary>
+<summary>Wie hoch ist die Steuer beim Verkauf von ETFs in Deutschland?</summary>
 <p>
-Der Sparerpauschbetrag ist ein Freibetrag für Kapitalerträge. In Deutschland können derzeit bis zu 1000 € pro Person pro Jahr steuerfrei verdient werden. Erst darüber hinaus fällt Abgeltungssteuer an.
+Der Steuersatz beträgt 25&nbsp;% zuzüglich Solidaritätszuschlag und gegebenenfalls Kirchensteuer. Durch die Teilfreistellung bei Aktien-ETFs sind jedoch 30&nbsp;% der Gewinne steuerfrei, sodass effektiv nur 70&nbsp;% des Gewinns versteuert werden müssen.
 </p>
 </details>
 
 <details>
-<summary>Was bedeutet FIFO beim ETF‑Verkauf?</summary>
+<summary>Wann muss ich beim ETF-Verkauf Steuern zahlen?</summary>
 <p>
-FIFO steht für „First‑In‑First‑Out“. Steuerlich gilt in Deutschland, dass beim Verkauf zunächst die zuerst gekauften ETF‑Anteile wieder verkauft werden.
+Steuern fallen an, wenn Sie beim Verkauf von ETF-Anteilen einen Gewinn erzielen und Ihr Sparerpauschbetrag bereits ausgeschöpft ist. Solange der jährliche Sparerpauschbetrag noch nicht vollständig genutzt wurde, können Gewinne bis zu dieser Höhe steuerfrei bleiben.
+</p>
+</details>
+
+<details>
+<summary>Was ist der Sparerpauschbetrag?</summary>
+<p>
+Der Sparerpauschbetrag ist ein Freibetrag für Kapitalerträge. In Deutschland können derzeit bis zu 1000&nbsp;€ pro Person pro Jahr steuerfrei verdient werden. Erst darüber hinaus fällt Abgeltungssteuer an.
+</p>
+</details>
+
+<details>
+<summary>Wie hoch ist der Sparerpauschbetrag aktuell?</summary>
+<p>
+Der Sparerpauschbetrag beträgt derzeit in Deutschland <strong>1.000&nbsp;€ pro Person und Jahr</strong>. 
+Für Ehepaare oder eingetragene Lebenspartnerschaften, die gemeinsam veranlagt werden, liegt der Freibetrag bei <strong>2.000&nbsp;€ pro Jahr</strong>. 
+Kapitalerträge wie Zinsen, Dividenden oder Gewinne aus dem Verkauf von ETFs bleiben bis zu dieser Höhe steuerfrei. 
+Erst wenn die gesamten Kapitalerträge den Sparerpauschbetrag überschreiten, fällt Abgeltungssteuer an.
+</p>
+</details>
+
+<details>
+<summary>Was bedeutet FIFO beim ETF-Verkauf?</summary>
+<p>
+FIFO steht für „First-In-First-Out“. Beim Verkauf von ETF-Anteilen gilt steuerlich, dass immer die zuerst gekauften Anteile zuerst verkauft werden. Dadurch kann sich der steuerpflichtige Gewinn je nach Kaufzeitpunkt der Anteile unterscheiden.
 </p>
 </details>
 
 <details>
 <summary>Was ist die Teilfreistellung bei ETFs?</summary>
 <p>
-Bei Aktien‑ETFs sind 30 % der Gewinne steuerfrei. Das bedeutet, dass nur 70 % des Gewinns tatsächlich versteuert werden müssen.
+Bei Aktien-ETFs sind 30&nbsp;% der Gewinne steuerfrei. Das bedeutet, dass nur 70&nbsp;% des Gewinns tatsächlich versteuert werden müssen.
 </p>
 </details>
 
 <details>
-<summary>Was ist die Vorabpauschale?</summary>
+<summary>Was ist die Vorabpauschale bei ETFs?</summary>
 <p>
-Die Vorabpauschale ist eine jährliche Mindestbesteuerung für Fonds. Sie stellt sicher, dass ein Teil der Erträge auch dann besteuert wird, wenn der Fonds keine Ausschüttungen vornimmt.
+Die Vorabpauschale ist eine jährliche Mindestbesteuerung für Fonds. Sie sorgt dafür, dass auch bei thesaurierenden ETFs ein Teil der Erträge besteuert wird, selbst wenn keine Ausschüttungen erfolgen.
+</p>
+</details>
+
+<details>
+<summary>Wie viele ETF-Anteile kann ich steuerfrei verkaufen?</summary>
+<p>
+Das hängt davon ab, wie hoch Ihr Gewinn pro Anteil ist und wie viel Sparerpauschbetrag noch verfügbar ist. Der ETF Steuer Rechner berechnet automatisch, wie viele Anteile Sie verkaufen können, ohne dass Abgeltungssteuer anfällt.
+</p>
+</details>
+
+<details>
+<summary>Wie wird der Gewinn beim ETF-Verkauf berechnet?</summary>
+<p>
+Der Gewinn beim Verkauf von ETFs ergibt sich aus der Differenz zwischen dem Verkaufspreis und dem ursprünglichen Kaufpreis der Anteile. 
+Dabei wird in Deutschland das <strong>FIFO-Prinzip (First-In-First-Out)</strong> angewendet. Das bedeutet, dass steuerlich immer die zuerst gekauften ETF-Anteile als zuerst verkauft gelten.
+</p>
+
+<p>
+Der steuerpflichtige Gewinn wird anschließend um mehrere Faktoren angepasst, zum Beispiel:
+</p>
+
+<ul>
+<li><strong>Teilfreistellung</strong> bei Aktien-ETFs (30&nbsp;% der Gewinne sind steuerfrei)</li>
+<li><strong>Vorabpauschalen</strong>, die bereits in früheren Jahren versteuert wurden</li>
+<li><strong>Verlustverrechnung</strong aus dem Verlusttopf Ihrer Bank</li>
+<li>den noch verfügbaren <strong>Sparerpauschbetrag</strong></li>
+</ul>
+
+<p>
+Der ETF Steuer Rechner berücksichtigt diese Faktoren automatisch und berechnet daraus den voraussichtlichen steuerpflichtigen Gewinn sowie die zu zahlende Steuer.
+</p>
+</details>
+
+<details>
+<summary>Muss ich ETF-Gewinne in der Steuererklärung angeben?</summary>
+<p>
+In den meisten Fällen führt Ihr Broker die Abgeltungssteuer automatisch ab. Wenn jedoch kein Freistellungsauftrag vorliegt oder ausländische Broker genutzt werden, kann es erforderlich sein, die Kapitalerträge in der Steuererklärung anzugeben.
 </p>
 </details>
 
@@ -487,9 +617,34 @@ Der Rechner verwendet die aktuellen deutschen Steuerregeln und berücksichtigt F
 </details>
 
 <details>
-<summary>Wie komme ich an meine Kaufdaten?</summary>
+<summary>Warum kann die Steuerberechnung von der meiner Bank abweichen?</summary>
 <p>
-Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit. Dort finden Sie ausgeführte Kaufaufträge mit Kaufdatum, Stückpreis und Anzahl der gekauften Anteile.
+Banken können leicht unterschiedliche Rundungsregeln, Kursquellen oder Berechnungsmethoden verwenden. Daher können kleine Unterschiede zwischen der Berechnung dieses Tools und der tatsächlichen Steuerabrechnung Ihrer Bank entstehen.
+</p>
+</details>
+
+<details>
+<summary>Welche Daten benötigt der ETF Steuer Rechner?</summary>
+<p>
+Für die Berechnung werden in der Regel folgende Informationen benötigt:
+</p>
+
+<ul>
+<li><strong>Kaufdatum der ETF-Anteile</strong> – bestimmt die Reihenfolge der Verkäufe nach dem FIFO-Prinzip</li>
+<li><strong>Kaufpreis pro Anteil</strong> – dient zur Berechnung des Gewinns beim Verkauf</li>
+<li><strong>Anzahl der gekauften Anteile</strong> – bestimmt den Gesamtwert der Position</li>
+<li><strong>Aktueller Verkaufskurs</strong> – Preis, zu dem die Anteile verkauft werden sollen</li>
+</ul>
+
+<p>
+Auf Basis dieser Daten berechnet der ETF Steuer Rechner den Gewinn aus dem Verkauf sowie die voraussichtlich anfallende Steuer.
+</p>
+</details>
+
+<details>
+<summary>Werden meine eingegebenen Daten gespeichert?</summary>
+<p>
+Nein. Alle Berechnungen erfolgen direkt im Browser beziehungsweise innerhalb des eingebetteten Tools. Es werden keine persönlichen Finanzdaten dauerhaft gespeichert.
 </p>
 </details>
 
@@ -550,7 +705,7 @@ Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit
         <h3>1. Allgemeine Hinweise</h3>
         <p>
         Der Schutz Ihrer persönlichen Daten ist mir wichtig. Diese Website kann grundsätzlich ohne Angabe personenbezogener Daten genutzt werden. 
-        Die Verarbeitung personenbezogener Daten erfolgt ausschließlich im Rahmen der gesetzlichen Bestimmungen der Datenschutz‑Grundverordnung (DSGVO) sowie der einschlägigen nationalen Datenschutzgesetze.
+        Die Verarbeitung personenbezogener Daten erfolgt ausschließlich im Rahmen der gesetzlichen Bestimmungen der Datenschutz-Grundverordnung (DSGVO) sowie der einschlägigen nationalen Datenschutzgesetze.
         </p>
         
         <h3>2. Verantwortlicher</h3>
@@ -563,13 +718,13 @@ Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit
         Krawehlstr. 44<br>
         45130 Essen<br>
         Deutschland<br>
-        E‑Mail: dennishermelyn@gmail.com
+        E-Mail: dennishermelyn@gmail.com
         </p>
         
         <h3>3. Hosting über Vercel</h3>
         <p>
-        Diese Website wird über den Hosting‑Dienst Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA betrieben.
-        Beim Aufruf der Website werden durch den Hosting‑Provider automatisch technische Informationen verarbeitet.
+        Diese Website wird über den Hosting-Dienst Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA betrieben.
+        Beim Aufruf der Website werden durch den Hosting-Provider automatisch technische Informationen verarbeitet.
         Dies ist erforderlich, um die Website auszuliefern und die Stabilität sowie Sicherheit der Systeme zu gewährleisten.
         </p>
         
@@ -578,16 +733,16 @@ Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit
         </p>
         
         <ul>
-        <li>IP‑Adresse des anfragenden Geräts</li>
+        <li>IP-Adresse des anfragenden Geräts</li>
         <li>Datum und Uhrzeit des Zugriffs</li>
         <li>Browsertyp und Browserversion</li>
         <li>verwendetes Betriebssystem</li>
         <li>aufgerufene Seiten</li>
-        <li>Referrer‑URL (zuvor besuchte Seite)</li>
+        <li>Referrer-URL (zuvor besuchte Seite)</li>
         </ul>
         
         <p>
-        Diese Daten werden in sogenannten Server‑Logfiles verarbeitet. Eine Zusammenführung dieser Daten mit anderen Datenquellen erfolgt durch den Betreiber dieser Website nicht.
+        Diese Daten werden in sogenannten Server-Logfiles verarbeitet. Eine Zusammenführung dieser Daten mit anderen Datenquellen erfolgt durch den Betreiber dieser Website nicht.
         </p>
         
         <p>
@@ -603,7 +758,7 @@ Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit
         <p>
         Auf dieser Website ist ein Rechner eingebettet, der über die Plattform Streamlit bereitgestellt wird.
         Beim Aufruf dieses Rechners wird eine Verbindung zu Servern des jeweiligen Dienstes hergestellt.
-        Dabei können technische Daten wie IP‑Adresse, Browserinformationen und Zeitpunkt des Zugriffs verarbeitet werden.
+        Dabei können technische Daten wie IP-Adresse, Browserinformationen und Zeitpunkt des Zugriffs verarbeitet werden.
         </p>
         
         <p>
@@ -614,7 +769,7 @@ Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit
         <h3>5. Cookies</h3>
         <p>
         Diese Website verwendet selbst keine Cookies zur Analyse oder Nachverfolgung von Nutzern.
-        Es kann jedoch technisch erforderlich sein, dass durch den Hosting‑Anbieter oder durch eingebettete Dienste Cookies gesetzt werden.
+        Es kann jedoch technisch erforderlich sein, dass durch den Hosting-Anbieter oder durch eingebettete Dienste Cookies gesetzt werden.
         Auf diese technischen Prozesse hat der Betreiber dieser Website keinen direkten Einfluss.
         </p>
         
@@ -633,7 +788,7 @@ Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit
         
         <p>
         Da diese Website selbst keine personenbezogenen Daten speichert, können entsprechende Anfragen in der Regel nicht direkt bearbeitet werden. 
-        Technische Zugriffsdaten werden ausschließlich durch den Hosting‑Anbieter verarbeitet.
+        Technische Zugriffsdaten werden ausschließlich durch den Hosting-Anbieter verarbeitet.
         </p>
         
         <h3>7. Beschwerderecht bei einer Aufsichtsbehörde</h3>
@@ -649,102 +804,14 @@ Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit
         
         <h3>9. Kontakt</h3>
         <p>
-        Bei Fragen zum Datenschutz können Sie sich jederzeit per E‑Mail an mich wenden:
-        </p>
-        
-        <p>
-        dennishermelyn@gmail.com
-        </p>
-        
-        <h3>Stand: Juni 2026</h3>
-
-        <!-- <h2>Datenschutzerklärung</h2>
-
-        <h3>1. Allgemeine Hinweise</h3>
-        <p>
-        Der Schutz Ihrer persönlichen Daten ist mir wichtig. Diese Website kann grundsätzlich ohne Angabe personenbezogener Daten genutzt werden.
-        </p>
-
-        <h3>2. Verantwortlicher</h3>
-        <p>
-        Verantwortlich für die Datenverarbeitung auf dieser Website ist:
-        </p>
-
-        <p>
-        Dennis Hermelyn<br>
-        Krawehlstr. 44<br>
-        45130 Essen<br>
-        E‑Mail: dennishermelyn@gmail.com
-        </p>
-
-        <h3>3. Hosting über Vercel</h3>
-        <p>
-        Diese Website wird über den Hosting‑Dienst Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA betrieben.
-        Beim Aufruf der Website werden durch den Hosting‑Provider automatisch technische Informationen verarbeitet.
-        Dazu können insbesondere gehören:
-        </p>
-
-        <ul>
-        <li>IP‑Adresse</li>
-        <li>Datum und Uhrzeit des Zugriffs</li>
-        <li>Browsertyp und Betriebssystem</li>
-        <li>aufgerufene Seiten</li>
-        <li>Referrer‑URL</li>
-        </ul>
-
-        <p>
-        Diese Daten sind technisch erforderlich, um die Website bereitzustellen und die Stabilität sowie Sicherheit der Systeme zu gewährleisten.
-        </p>
-
-        <h3>4. Eingebettetes Tool (Streamlit)</h3>
-        <p>
-        Auf dieser Website ist ein Rechner eingebettet, der über die Plattform Streamlit betrieben wird.
-        Beim Aufruf dieses Tools kann eine Verbindung zu Servern des jeweiligen Anbieters hergestellt werden.
-        Dabei können technische Daten wie IP‑Adresse, Browserinformationen und Zeitpunkt des Zugriffs verarbeitet werden.
-        </p>
-
-        <p>
-        Der Rechner verarbeitet ausschließlich die vom Nutzer eingegebenen Daten lokal zur Durchführung der Berechnung.
-        Es werden durch den Betreiber dieser Website keine eingegebenen Daten gespeichert oder weitergegeben.
-        </p>
-
-        <h3>5. Cookies</h3>
-        <p>
-        Diese Website verwendet selbst keine Cookies zur Analyse oder Nachverfolgung von Nutzern.
-        Es kann jedoch sein, dass technische Cookies durch den Hosting‑Anbieter oder eingebettete Dienste gesetzt werden.
-        </p>
-
-        <h3>6. Ihre Rechte</h3>
-        <p>
-        Sie haben im Rahmen der gesetzlichen Bestimmungen das Recht auf Auskunft über die Verarbeitung Ihrer personenbezogenen Daten sowie ein Recht auf Berichtigung oder Löschung dieser Daten.
-        </p>
-
-        <p>
-        Da diese Website selbst keine personenbezogenen Daten speichert, können entsprechende Anfragen in der Regel nicht direkt bearbeitet werden.
-        Technische Zugriffsdaten werden ausschließlich durch den Hosting‑Anbieter verarbeitet.
-        </p>
-
-        <p>
-        Sie haben außerdem das Recht, sich bei einer Datenschutzaufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren.
-        </p>
-
-        <h3>7. Änderungen dieser Datenschutzerklärung</h3>
-        <p>
-        Diese Datenschutzerklärung kann angepasst werden, wenn sich technische oder rechtliche Rahmenbedingungen ändern.
-        </p>
-
-        <h3>8. Kontakt</h3>
-        <p>
         Bei Fragen zum Datenschutz können Sie sich jederzeit per E-Mail an mich wenden:
         </p>
-
+        
         <p>
         dennishermelyn@gmail.com
         </p>
-
+        
         <h3>Stand: Juni 2026</h3>
- -->
-
 
   </div>
 </div>
@@ -752,8 +819,83 @@ Ihr Broker stellt üblicherweise eine Postbox oder Transaktionsübersicht bereit
 
 </main>
 
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "Wie hoch ist die Steuer beim Verkauf von ETFs in Deutschland?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Beim Verkauf von ETFs fällt in Deutschland grundsätzlich Abgeltungssteuer an. Der Steuersatz beträgt 25 Prozent zuzüglich Solidaritätszuschlag und gegebenenfalls Kirchensteuer. Bei Aktien-ETFs sind durch die Teilfreistellung 30 Prozent der Gewinne steuerfrei."
+}
+},
+{
+"@type": "Question",
+"name": "Was ist der Sparerpauschbetrag?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Der Sparerpauschbetrag ist ein Freibetrag für Kapitalerträge. In Deutschland können derzeit bis zu 1000 Euro pro Person und Jahr steuerfrei verdient werden. Erst darüber hinaus fällt Abgeltungssteuer an."
+}
+},
+{
+"@type": "Question",
+"name": "Was bedeutet FIFO beim ETF-Verkauf?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "FIFO steht für „First-In-First-Out“. Beim Verkauf von ETF-Anteilen gilt steuerlich, dass immer die zuerst gekauften Anteile zuerst verkauft werden. Dadurch kann sich der steuerpflichtige Gewinn je nach Kaufzeitpunkt der Anteile unterscheiden."
+}
+},
+{
+"@type": "Question",
+"name": "Was ist die Vorabpauschale bei ETFs?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Die Vorabpauschale ist eine jährliche Mindestbesteuerung für Fonds. Sie sorgt dafür, dass auch bei thesaurierenden ETFs ein Teil der Erträge besteuert wird, selbst wenn keine Ausschüttungen erfolgen."
+}
+},
+{
+"@type": "Question",
+"name": "Wie viele ETF-Anteile kann ich steuerfrei verkaufen?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Das hängt davon ab, wie hoch Ihr Gewinn pro Anteil ist und wie viel Sparerpauschbetrag noch verfügbar ist. Der ETF Steuer Rechner kann berechnen, wie viele Anteile Sie verkaufen können, ohne dass Abgeltungssteuer anfällt."
+}
+}
+]
+}
+</script>
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "SoftwareApplication",
+"name": "ETF Steuer Rechner",
+"applicationCategory": "FinanceApplication",
+"operatingSystem": "Web",
+"url": "https://www.etfsteuerrechner.de",
+"description": "Kostenloser ETF Steuer Rechner für Deutschland. Berechnen Sie die Steuer beim ETF-Verkauf, wie viele ETF-Anteile steuerfrei verkauft werden können und wie viele Anteile Sie für einen gewünschten Nettoerlös verkaufen müssen.",
+"offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "EUR"
+},
+"featureList": [
+  "Berechnung der Steuer beim ETF-Verkauf",
+  "Berechnung steuerfrei verkaufbarer ETF-Anteile",
+  "Berechnung benötigter Anteile für gewünschten Nettoerlös",
+  "Berücksichtigung von FIFO, Teilfreistellung, Vorabpauschale und Sparerpauschbetrag"
+]
+}
+</script>
+
+
 <script defer src="/_vercel/insights/script.js"></script>
+
 </body>
 </html>
 
-<!-- code ändern sodass lininen, und anklickbare elemente eine andere farbe haben. -->
+
+<!-- https://search.google.com/test/rich-results -->
